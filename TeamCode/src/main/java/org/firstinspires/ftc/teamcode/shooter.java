@@ -31,20 +31,18 @@ public class shooter extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            // Use A to start up motor and B to cool down
+            // Use A to start up motor and 'A to cool down
 
             while (opModeIsActive()) {
-                if (gamepad1.a) {
+                if (gamepad1.a) { // While A is pressed the shooter motor is set to full power
                     shooterMotor.setPower(1.0);
                 } else {
                     shooterMotor.setPower(0.0);
                 }
-                if (gamepad1.b) {
-                    shooterMotor.setPower(0.0);
-                }
+
                 // Upon pressing the right bumper fire the shooter
 
-                if (gamepad1.right_bumper) {
+                if (gamepad1.right_trigger > 0.2) {
                     triggerServo.setPosition(shoot);
                 } else {
                     triggerServo.setPosition(rest);
