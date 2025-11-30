@@ -37,7 +37,7 @@ public class autonomous extends LinearOpMode {
         double RPM = 200;
         if (deg > orientation) {
             double ddeg = deg - orientation;
-            double t = (ddeg * (L + W) * 60) / (2 * Math.PI * radius * RPM);
+            double t = (ddeg * (L + W) * 60 * 1000) / (2 * Math.PI * radius * RPM);
 
             //𝑟 r = wheel radius
             //𝑅 R = motor RPM
@@ -60,7 +60,7 @@ public class autonomous extends LinearOpMode {
             orientation = deg;
         } else {
             double ddeg = orientation - deg;
-            double t = (ddeg * (L + W) * 60) / (2 * Math.PI * radius * RPM);
+            double t = (ddeg * (L + W) * 60 * 1000) / (2 * Math.PI * radius * RPM);
 
             motorFL.setPower(1);
             motorFR.setPower(1);
@@ -77,7 +77,7 @@ public class autonomous extends LinearOpMode {
     public void moveDistance(double d){
         int diameter = 4;
         int RPM = 200;
-        double t = (60 * d) / (Math.PI * diameter * RPM);
+        double t = (60 * d * 1000) / (Math.PI * diameter * RPM);
         motorFL.setPower(1);
         motorFR.setPower(1);
         motorBL.setPower(1);
